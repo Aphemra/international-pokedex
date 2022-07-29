@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+html, body {
+    font-family: 'Kanit', sans-serif;
+    font-size: 10px;
+    background-color: var(--background-dark);
+    color: var(--primary-text-dark);
+    padding: 0;
+    margin: 0;
+    
+    --border-dark: #454e81;
+    --border-active-dark: #6e7dc5;
+    --foreground-dark: #343C63;
+    --background-dark: #2B3151;
+    --primary-text-dark: white;
+    --type-text-bright: white;
+    --type-text-dark: black;
+}
+
+.container {
+    margin-top: 7.5rem;
+    width: 100%;
+    max-width: 40rem;
+    min-width: 36rem;
+    margin: 1rem auto;
+}
+
+.search-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6rem;
+    width: 100%;
+    background-color: var(--background-dark);
+    z-index: 50;
+}
+
+.search-bar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 100%;
+    max-width: 40rem;
+}
+
+.search-results {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: 6rem;
+    gap: 1rem;
+    z-index: 1;
+    max-width: 38rem;
+    margin: 0 auto;
+}
+
+.user-input {
+    background-color: var(--foreground-dark);
+    border: 2px solid var(--border-dark);
+    border-radius: 10px;
+    height: 5rem;
+    padding: 0 1rem;
+    width: inherit;
+    color: var(--primary-text-dark);
+    font-size: 3rem;
+    font-family: 'Kanit', sans-serif;
+    caret-color: var(--border-active-dark);
+}
+
+.user-input::placeholder {
+    color: var(--border-active-dark);
+    font-size: 3rem;
+    font-family: 'Kanit', sans-serif;
+}
+
+.pokemon-entry {
+    height: 5rem;
+    overflow: hidden;
+    display: flex;
+    border-radius: 45px 15px 45px 15px;
+    padding: 0.5rem;
+    border: 2px solid var(--border-dark);
+    background-color: var(--foreground-dark);
+}
+
+.pokemon-types {
+    display: flex;
+    text-align: center;
+    width: auto;
+}
+
+.type {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.25rem;
+    margin-right: 0.25rem;
+    margin-bottom: 0.5rem;
+    border-radius: 7px;
+    font-weight: 350;
+}
+
+.user-input:focus {
+    border: 2px solid var(--border-active-dark);
+    outline: none;
+}
+
+.hide {
+    display: none;
+}
+
+.wide {
+    padding: 0.1rem 2rem;
+}
+
+.pokemon-left {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.pokemon-number {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    justify-content: flex-end;
+    font-size: 2rem;
+}
+
+.pokemon-title {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid white; */
+}
+
+.pokemon-name {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.pokemon-image {
+    position: relative;
+    top: 0.5rem;
+    width: 8rem;
+}
+
+/* type classes */
+
+.normal {
+    background-color: #7E7E51;
+    color: var(--type-text-bright);
+}
+
+.fighting {
+    background-color: #E73930;
+    color: var(--type-text-bright);
+}
+
+.poison {
+    background-color: #C04DC0;
+    color: var(--type-text-bright);
+}
+
+.rock {
+    background-color: #DCC044;
+    color: var(--type-text-bright);
+}
+
+.bug {
+    background-color: #C9DC27;
+    color: var(--type-text-bright);
+}
+
+.ghost {
+    background-color: #8769B7;
+    color: var(--type-text-bright);
+}
+
+.fire {
+    background-color: #FF7712;
+    color: var(--type-text-bright);
+}
+
+.water {
+    background-color: #154BCE;
+    color: var(--type-text-bright);
+}
+
+.grass {
+    background-color: #8FD844;
+    color: var(--type-text-bright);
+}
+
+.psychic {
+    background-color: #E0094A;
+    color: var(--type-text-bright);
+}
+
+.ice {
+    background-color: #389595;
+    color: var(--type-text-bright);
+}
+
+.dragon {
+    background-color: #5009FE;
+    color: var(--type-text-bright);
+}
+
+.dark {
+    background-color: #876957;
+    color: var(--type-text-bright);
+}
+
+.fairy {
+    background-color: #9E1A38;
+    color: var(--type-text-bright);
+}
+
+.ground {
+    background-color: #96771E;
+    color: var(--type-text-bright);
+}
+
+.flying {
+    background-color: #3B16A8;
+    color: var(--type-text-bright);
+}
+
+.steel {
+    background-color: #4A4A6E;
+    color: var(--type-text-bright);
+}
+
+.electric {
+    background-color: #C39E06;
+    color: var(--type-text-bright);
+}
+
+/* scrollbar styling */
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--foreground-dark);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-dark);
+}
