@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;800&display=swap");
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	font-family: "Open Sans", sans-serif;
+}
+
+/*#region Light Mode Variables */
+:root {
+	--background: rgb(237, 239, 241);
+	--navbar: rgb(242, 243, 244);
+	--text-primary: rgb(35, 39, 42);
+	--text-secondary: rgb(96, 88, 208);
+}
+/*#endregion*/
+
+/*#region Dark Mode Variables */
+[data-theme="dark"] {
+	--background: rgb(35, 39, 42);
+	--navbar: rgb(44, 47, 51);
+	--text-primary: rgb(237, 239, 241);
+	--text-secondary: rgb(141, 136, 221);
+}
+/*#endregion*/
