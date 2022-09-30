@@ -27,3 +27,8 @@
 	--text-secondary: rgb(141, 136, 221);
 }
 /*#endregion*/
+
+.app {
+	background-color: var(--background);
+	color: var(--text-primary);
+}
