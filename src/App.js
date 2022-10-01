@@ -1,6 +1,8 @@
 import SearchBar from "./components/SearchBar";
 import useLocalState from "./hooks/useLocalState";
 
+import pokemon from "./data/Pokemon";
+
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
