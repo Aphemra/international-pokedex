@@ -1,4 +1,4 @@
-function SearchBar({ switchTheme }) {
+function SearchBar({ switchTheme, searchFilter, setSearchFilter }) {
 	return <h1>SearchBar</h1>;
 }
 

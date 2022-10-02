@@ -28,7 +28,12 @@
 }
 /*#endregion*/
 
-.app {
+body {
 	background-color: var(--background);
 	color: var(--text-primary);
+}
+
+.pokemon-name {
+	font-weight: 400;
+	text-transform: capitalize;
 }
