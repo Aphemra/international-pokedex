@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-function useFetchData(apiString) {
+function useFetchData(apiString, id = "") {
 	const [data, setData] = useState("");
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch(apiString);
+			const response = await fetch(`${apiString}/${id}`);
 			const results = await response.json();
 			setData(results);
 		};
 		fetchData();
-	}, [apiString]);
+	}, []);
 
 	return data;
 }

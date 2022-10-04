@@ -11,6 +11,9 @@ function App() {
 
 	const pokemonData = useFetchData("https://pokeapi.co/api/v2/pokemon/?limit=20");
 
+	// TODO: Figure out a way to either change the useFetchData hook to loop over all pokemon
+	// or look for a way to make useFetchData into an empty Component that can have data extracted.
+
 	function switchTheme() {
 		const newTheme = theme === "light" ? "dark" : "light";
 		setTheme(newTheme);

@@ -33,7 +33,24 @@ body {
 	color: var(--text-primary);
 }
 
+.app {
+	text-align: center;
+}
+
+.search-bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 3rem;
+}
+
+.search-results {
+	margin: 1.5rem;
+}
+
 .pokemon-name {
 	font-weight: 400;
 	text-transform: capitalize;
+	list-style: none;
+	padding-top: 0.5rem;
 }
