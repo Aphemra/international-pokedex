@@ -2,17 +2,15 @@ import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
 import useLocalState from "./hooks/useLocalState";
-import useFetchData from "./hooks/useFetchData";
+import useGetPokemon from "./hooks/useGetPokemon";
 
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 	const [searchFilter, setSearchFilter] = useState({});
 
-	const pokemonData = useFetchData("https://pokeapi.co/api/v2/pokemon/?limit=20");
-
-	// TODO: Figure out a way to either change the useFetchData hook to loop over all pokemon
-	// or look for a way to make useFetchData into an empty Component that can have data extracted.
+	const pokemonToLoad = 1154; //1154 total pokemon available
+	const pokemonData = useGetPokemon(pokemonToLoad);
 
 	function switchTheme() {
 		const newTheme = theme === "light" ? "dark" : "light";
@@ -22,7 +20,7 @@ function App() {
 	return (
 		<div className="app" data-theme={theme}>
 			<SearchBar switchTheme={switchTheme} searchFilter={searchFilter} setSearchFilter={setSearchFilter} />
-			<SearchResults results={pokemonData} searchFilter={searchFilter} />
+			<SearchResults pokemonData={pokemonData} pokemonToLoad={pokemonToLoad} searchFilter={searchFilter} />
 		</div>
 	);
 }

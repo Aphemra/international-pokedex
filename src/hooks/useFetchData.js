@@ -10,7 +10,7 @@ function useFetchData(apiString, id = "") {
 			setData(results);
 		};
 		fetchData();
-	}, []);
+	}, [apiString, id]);
 
 	return data;
 }

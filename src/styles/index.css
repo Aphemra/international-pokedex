@@ -48,9 +48,20 @@ body {
 	margin: 1.5rem;
 }
 
+.pokemon-info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	padding-top: 0.5rem;
+}
+
+.pokemon-thumbnail {
+	width: 2rem;
+}
+
 .pokemon-name {
 	font-weight: 400;
 	text-transform: capitalize;
-	list-style: none;
-	padding-top: 0.5rem;
+	margin-left: 1rem;
 }
