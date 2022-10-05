@@ -9,7 +9,7 @@ function App() {
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 	const [searchFilter, setSearchFilter] = useState({});
 
-	const pokemonToLoad = 1154; //1154 total pokemon available
+	const pokemonToLoad = 25; //1154 total pokemon available
 	const pokemonData = useGetPokemon(pokemonToLoad);
 
 	function switchTheme() {

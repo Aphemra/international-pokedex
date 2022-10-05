@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import PokemonEntry from "./PokemonEntry";
 
 function SearchResults({ pokemonData, pokemonToLoad, searchFilter }) {
 	const [isLoading, setIsLoading] = useState(true);
@@ -17,15 +18,7 @@ function SearchResults({ pokemonData, pokemonToLoad, searchFilter }) {
 				<ul>
 					{pokemonData
 						? pokemonData.map((pokemon, index) => (
-								<li key={index} className="pokemon-info">
-									<img
-										className="pokemon-thumbnail"
-										src={pokemon.sprites.other["official-artwork"].front_default}
-										alt={pokemon.name}
-										onLoad={handleImageLoaded}
-									/>
-									<div className="pokemon-name">{pokemon.name}</div>
-								</li>
+								<PokemonEntry key={index} pokemon={pokemon} handleImageLoaded={handleImageLoaded} />
 						  ))
 						: "Loading..."}
 				</ul>
