@@ -28,20 +28,58 @@
 }
 /*#endregion*/
 
-body {
+.app {
+	text-align: center;
 	background-color: var(--background);
 	color: var(--text-primary);
 }
 
-.app {
-	text-align: center;
-}
-
 .search-bar {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 3rem;
+	background-color: var(--navbar);
+	border-bottom: 2px solid var(--text-primary);
+}
+
+.search-bar > button {
+	padding: 0.25rem 0.75rem;
+	font-size: 0.75rem;
+	background-color: var(--navbar);
+	color: var(--text-primary);
+	border: 2px solid var(--text-primary);
+	border-radius: 0.5rem;
+	margin-left: 2rem;
+	outline: none;
+}
+
+.search-bar > button:hover,
+.search-bar > button:focus {
+	background-color: var(--text-secondary);
+	cursor: pointer;
+}
+
+.search-bar > input {
+	padding: 0.25rem 0.75rem;
+	font-size: 0.75rem;
+	background-color: var(--navbar);
+	color: var(--text-primary);
+	border: 2px solid var(--text-primary);
+	border-radius: 0.5rem;
+	width: 20rem;
+	outline: none;
+}
+
+.search-bar > input:focus {
+	border: 2px solid var(--text-secondary);
+}
+
+.search-bar > input::placeholder {
+	color: var(--text-secondary);
 }
 
 .search-results {
@@ -53,7 +91,12 @@ body {
 	align-items: center;
 	justify-content: center;
 	list-style: none;
-	padding-top: 0.5rem;
+	padding: 0.5rem;
+	width: 12rem;
+	margin: 0 auto 0.5rem auto;
+	background-color: var(--navbar);
+	border: 2px solid var(--text-secondary);
+	border-radius: 0.5rem;
 }
 
 .pokemon-thumbnail {
@@ -63,5 +106,6 @@ body {
 .pokemon-name {
 	font-weight: 400;
 	text-transform: capitalize;
-	margin-left: 1rem;
+	width: 8rem;
+	color: var(--text-primary);
 }

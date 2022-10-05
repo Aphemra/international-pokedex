@@ -1,7 +1,10 @@
 function SearchBar({ switchTheme, searchFilter, setSearchFilter }) {
 	return (
 		<div className="search-bar">
-			<h1>SearchBar</h1>
+			<input type="text" placeholder="Search..."></input>
+			<button type="button" onClick={switchTheme}>
+				Switch Theme
+			</button>
 		</div>
 	);
 }
