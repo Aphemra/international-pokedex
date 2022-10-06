@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PokemonEntry from "./PokemonEntry";
 
-function SearchResults({ pokemonData, pokemonToLoad, searchFilter }) {
+function SearchResults({ pokemonData, setPokemonData, pokemonToLoad, searchFilter }) {
 	const [isLoading, setIsLoading] = useState(true);
 	const counter = useRef(0);
 	function handleImageLoaded() {
@@ -9,11 +9,11 @@ function SearchResults({ pokemonData, pokemonToLoad, searchFilter }) {
 		if (counter.current >= pokemonToLoad / 2) setIsLoading(false);
 	}
 
-	console.log(counter.current);
+	//console.log(pokemonData.filter((pokemon) => pokemon.name.includes(searchFilter.mainInput)));
 
 	return (
 		<>
-			<div style={{ display: isLoading ? "block" : "none" }}>Loading 1154 Pokemon...</div>
+			<div style={{ display: isLoading ? "block" : "none" }}>Loading {pokemonToLoad} Pokemon...</div>
 			<div style={{ display: isLoading ? "none" : "unset" }} className="search-results">
 				<ul>
 					{pokemonData
