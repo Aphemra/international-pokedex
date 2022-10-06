@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PokemonEntry from "./PokemonEntry";
 
 function SearchResults({ pokemonData, setPokemonData, pokemonToLoad, searchFilter }) {
@@ -8,8 +8,6 @@ function SearchResults({ pokemonData, setPokemonData, pokemonToLoad, searchFilte
 		counter.current += 1;
 		if (counter.current >= pokemonToLoad / 2) setIsLoading(false);
 	}
-
-	//console.log(pokemonData.filter((pokemon) => pokemon.name.includes(searchFilter.mainInput)));
 
 	return (
 		<>

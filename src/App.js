@@ -8,9 +8,9 @@ function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 
-	const [searchFilter, setSearchFilter] = useState({ mainInput: "" });
+	const [searchFilter, setSearchFilter] = useState({ mainInput: "", typeChoice: "none" });
 
-	const pokemonToLoad = 25; //1154 total pokemon available
+	const pokemonToLoad = 151; //1154 total pokemon available
 	const loadedPokemonData = useGetPokemon(pokemonToLoad);
 	const [pokemonData, setPokemonData] = useState(loadedPokemonData);
 
@@ -19,10 +19,21 @@ function App() {
 	}, [loadedPokemonData]);
 
 	useEffect(() => {
-		console.log(searchFilter);
-		const filteredPokemonData = loadedPokemonData.filter((pokemon) => pokemon.name.includes(searchFilter.mainInput));
+		let filteredPokemonData = loadedPokemonData;
+		if (searchFilter.typeChoice !== "none") {
+			filteredPokemonData = loadedPokemonData.filter((pokemon) => {
+				return (
+					pokemon?.types[0]?.type.name === searchFilter.typeChoice ||
+					pokemon?.types[1]?.type.name === searchFilter.typeChoice
+				);
+			});
+		}
+
+		filteredPokemonData = filteredPokemonData.filter((pokemon) => pokemon.name.includes(searchFilter.mainInput));
 		setPokemonData([...filteredPokemonData]);
-	}, [searchFilter]);
+	}, [loadedPokemonData, searchFilter]);
+
+	useEffect(() => console.log(searchFilter), [searchFilter]);
 
 	function switchTheme() {
 		const newTheme = theme === "light" ? "dark" : "light";

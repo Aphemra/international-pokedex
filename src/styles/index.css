@@ -14,7 +14,7 @@
 	--background: rgb(237, 239, 241);
 	--navbar: rgb(242, 243, 244);
 	--text-primary: rgb(35, 39, 42);
-	--text-secondary: rgb(96, 88, 208);
+	--text-secondary: rgb(168, 61, 61);
 
 	/* #region Type Variables */
 	--normal: #a8a878;
@@ -61,7 +61,7 @@
 	--background: rgb(35, 39, 42);
 	--navbar: rgb(44, 47, 51);
 	--text-primary: rgb(237, 239, 241);
-	--text-secondary: rgb(141, 136, 221);
+	--text-secondary: rgb(168, 61, 61);
 }
 
 /* width */
@@ -100,6 +100,9 @@ html {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+}
+
+.search {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -109,7 +112,7 @@ html {
 	z-index: 1;
 }
 
-.search-bar > button {
+.search > button {
 	padding: 0.25rem 0.75rem;
 	font-size: 0.75rem;
 	background-color: var(--navbar);
@@ -120,13 +123,13 @@ html {
 	outline: none;
 }
 
-.search-bar > button:hover,
-.search-bar > button:focus {
+.search > button:hover,
+.search > button:focus {
 	background-color: var(--text-secondary);
 	cursor: pointer;
 }
 
-.search-bar > input {
+.search > input {
 	padding: 0.25rem 0.75rem;
 	font-size: 0.75rem;
 	background-color: var(--navbar);
@@ -137,12 +140,53 @@ html {
 	outline: none;
 }
 
-.search-bar > input:focus {
+.search > input:focus {
 	border: 2px solid var(--text-secondary);
 }
 
-.search-bar > input::placeholder {
+.search > input::placeholder {
 	color: var(--text-secondary);
+}
+
+.filters {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.5rem;
+	align-items: center;
+	height: 6rem;
+	background-color: var(--text-secondary);
+	border-bottom: 2px solid var(--text-primary);
+	transition: all 0.5s;
+}
+
+.filters label {
+	font-size: 0.75rem;
+	margin-right: 0.5rem;
+	font-weight: 500;
+}
+
+.filters select {
+	font-size: 0.75rem;
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+	padding: 0.1rem 0.5rem;
+	background-color: var(--background);
+	color: var(--text-primary);
+}
+
+.filters option {
+	font-size: 0.75rem;
+}
+
+.filters.collapsed,
+.filters.collapsed * {
+	height: 0;
+	border: 0;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .search-results {
@@ -176,12 +220,16 @@ html {
 }
 
 .type {
+	display: flex;
+	justify-content: center;
 	text-transform: capitalize;
 	font-size: 0.6rem;
+	font-weight: 500;
 	width: 2.75rem;
 	border: 2px solid;
 	border-radius: 0.35rem;
 	padding: 0 0.35rem;
+	color: white;
 }
 
 .type.large {
