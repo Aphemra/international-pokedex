@@ -1,27 +1,22 @@
 import React from "react";
 
-function PokemonEntry({ pokemon, handleImageLoaded }) {
+function PokemonEntry({ pokemon }) {
 	return (
 		<li className="pokemon-info">
 			<div className="pokemon-info-left">
-				<img
-					className="pokemon-thumbnail"
-					src={pokemon.sprites.other["official-artwork"].front_default}
-					alt={pokemon.name}
-					onLoad={handleImageLoaded}
-				/>
+				<img className="pokemon-thumbnail" src={pokemon.images.main} alt={pokemon.name} />
 				<div className="pokemon-types">
 					<div
 						className={
-							pokemon.types.length === 2
-								? `type ${pokemon.types[0].type.name}`
-								: `type ${pokemon.types[0].type.name} large`
+							pokemon.details.type_two
+								? `type ${pokemon.details.type_one}`
+								: `type ${pokemon.details.type_one} large`
 						}
 					>
-						{pokemon.types[0].type.name}
+						{pokemon.details.type_one}
 					</div>
-					<div className={pokemon.types.length === 2 ? `type ${pokemon.types[1].type.name}` : `type hide`}>
-						{pokemon.types.length === 2 ? pokemon.types[1].type.name : ""}
+					<div className={pokemon.details.type_two ? `type ${pokemon.details.type_two}` : `type hide`}>
+						{pokemon.details.type_two ? pokemon.details.type_two : ""}
 					</div>
 				</div>
 			</div>

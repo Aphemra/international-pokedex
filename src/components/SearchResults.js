@@ -1,24 +1,22 @@
-import { useRef, useState } from "react";
 import PokemonEntry from "./PokemonEntry";
 
-function SearchResults({ pokemonData, setPokemonData, pokemonToLoad, searchFilter }) {
-	const [isLoading, setIsLoading] = useState(true);
-	const counter = useRef(0);
-	function handleImageLoaded() {
-		counter.current += 1;
-		if (counter.current >= pokemonToLoad / 2) setIsLoading(false);
-	}
-
+function SearchResults({ loadedPokemonData, pokemonToLoad, pokemonData, hasLoaded, searchFilter }) {
 	return (
 		<>
-			<div style={{ display: isLoading ? "block" : "none" }}>Loading {pokemonToLoad} Pokemon...</div>
-			<div style={{ display: isLoading ? "none" : "unset" }} className="search-results">
+			<div className="search-results">
 				<ul>
-					{pokemonData
-						? pokemonData.map((pokemon, index) => (
-								<PokemonEntry key={index} pokemon={pokemon} handleImageLoaded={handleImageLoaded} />
-						  ))
-						: "Loading..."}
+					{hasLoaded ? (
+						pokemonData.map((pokemon, index) => <PokemonEntry key={index} pokemon={pokemon} />)
+					) : (
+						<div className="loading-module">
+							<div>{`Loading ${loadedPokemonData.length}/${pokemonToLoad} Pokemon`}</div>
+							<div
+								className="loading-bar background"
+								style={{ width: `${(loadedPokemonData.length / pokemonToLoad) * 100}%` }}
+							></div>
+							<div className="loading-bar fill"></div>
+						</div>
+					)}
 				</ul>
 			</div>
 		</>
