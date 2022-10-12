@@ -45,6 +45,11 @@ function App() {
 		}
 	}, [loadedPokemonData]);
 
+	// TODO: Move this into the SearchResults.js page. It needs to be there
+	// in order to better faciliate lazy loading of data.
+	// I also want to filter by hiding elements instead of by reloading the list
+	// since that will likely be more performant. It will also allow me to better control
+	// how many pokemon are rendered at a time.
 	useEffect(() => {
 		if (isLoaded === false) return;
 
